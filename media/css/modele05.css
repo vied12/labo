@@ -1,0 +1,196 @@
+/* ==============================================
+   FEUILLE DE STYLES DES GABARITS HTML/CSS --- 05
+   © Elephorm & Alsacreations.com
+   Conditions d'utilisation:
+   http://creativecommons.org/licenses/by/2.0/fr/
+   ============================================== */
+
+
+/* --- COULEURS --- */
+
+/* Note: vous pouvez modifier simplement l'aspect de ce gabarit en modifiant
+   uniquement les couleurs de fond (propriétés background) et les couleurs
+   du texte (propriété color).
+   Pour modifier la disposition des blocs, voir plus bas dans la feuille de
+   styles la partie «positionnement». */
+
+/* Général */
+body {
+	color: white;
+	background: #222223;
+	font-family: 'Quicksand', sans-serif;
+	font-size:0.9em;
+	min-width:800px;
+}
+#content a, #content a:visited,#login-bar a, #login-bar a:visited {
+	color: white;
+}
+
+a:hover, a:focus {
+	color: #FF4C00;
+}
+strong {
+	color: #A1B55D;
+}
+
+h1 { color : #BAC6D7;}
+h2 {color : #465158; border-left : 5px solid #A1B55D; margin-left: 10px;padding-left:9px;}
+h3 {color : #465158; margin-left: 0px;padding-left:9px;}
+/* Global */
+#global {
+	color: white;
+	
+	background: #465158; /* Voir -> Note 1 ci-dessous */
+}
+
+/* Navigation */
+#navigation {
+	background: #465158;
+}
+#navigation a {
+	color: white;
+
+}
+#navigation a:hover, #navigation a:focus {
+
+	color: #F0E39E;
+}
+
+footer {
+    margin-top:10px;
+    padding:7px 0px;
+    text-align:center;
+	color: white;
+	background: #222223; 
+}
+
+/* Contenu principal */
+#contenu {
+
+	color: #363B29;
+	background: white;
+	margin-bottom:30px;
+}
+#contenu a {
+	color: #332510;
+}
+#contenu a:hover, #contenu a:focus {
+	color: #6E5122;
+}
+#contenu strong {
+	color: #181A12;
+}
+
+#login-bar {position:absolute; right:10px; top:20px;}
+
+
+/* --- POSITIONNEMENT --- */
+
+/* Page */
+body {
+	
+}
+#global {
+	width: 100%; /* -> 3 */
+	overflow: hidden; /* -> 3 */
+}
+
+/* En-tête */
+#entete {
+	padding: 20px;
+}
+#entete h1 {
+	margin: 0;
+}
+#entete h1 img {
+	float: left;
+	margin: 7px 20px 10px 0;
+}
+#entete .sous-titre {
+	margin: 4px 0 15px 0;
+}
+
+/* Menu de navigation */
+#navigation {
+	width: 260px; /* -> 4 */
+	float: left;
+	padding-top:20px;
+}
+#navigation ul {
+	margin: 0;
+	padding: 0px 0px 0px 20px;
+
+}
+#navigation a {
+	display: block;
+	height: 1%; /* -> 5 */
+	padding: 6px 6px 6px 10px;
+	line-height: 1.5;
+	font-size: .9em;
+	text-decoration: none;
+}
+#navigation .selected > a {
+    font-weight: bold;
+}
+/* Contenu */
+#contenu {
+    border-top-left-radius: 15px;
+    -moz-border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    -moz-border-bottom-left-radius: 15px;
+	margin-left: 260px; /* -> 6 */
+	padding: 10px 20px;
+	min-width:500px;
+}
+#contenu > :first-child {
+	margin-top: 10px;
+}
+#contenu p, #contenu li {
+	line-height: 1.5;
+}
+
+
+/* --- NOTES ---
+
+1.	C'est la couleur de fond de div#global qui permet de simuler des colonnes
+	de même hauteur. On applique à div#global la même couleur de fond que le
+	menu de gauche, tandis que le bloc de droite (div#contenu), plus long,
+	a sa propre couleur de fond. Visuellement, on obtient donc deux colonnes.
+	Notez bien, cependant, que si la colonne de gauche est plus longue que
+	la colonne de droite... l'effet sera perdu.
+
+2.	Ce gabarit utilise du padding sur l'élément BODY pour créer un retrait
+	esthétique tout autour du conteneur principal.
+	Rappel: "padding: 20px 50px 30px 50px;" se lit ainsi: padding-top de 20px,
+	padding-right de 50px, padding-bottom de 30px, et padding-left de 50px.
+
+3.	On utilise ces propriétés pour empêcher le dépassement des flottants (cf.
+	http://web.covertprestige.info/test/
+	03-elements-flottants-et-element-parent-1.html).
+	Le overflow:hidden crée un contexte de formatage qui vient contenir les
+	flottants. Le width:100% a le même rôle, mais uniquement pour Internet
+	Explorer 6 (utilisation du HasLayout). Dans l'idéal, on le placera avec
+	des correctifs destinés à IE6 dans une feuille de styles appelée via un
+	commentaire conditionnel.
+
+4.	C'est la propriété "float" qui nous permet de placer deux blocs
+	côte-à-côte. Notez bien que l'élément flottant (ici, notre menu de
+	navigation) doit être placé en premier dans le code HTML. Il est
+	préférable de lui donner une largeur, ce que nous faisons ici avec un
+	"width: 18%;".
+
+5.	Correction d'un bug d'Internet Explorer 6. Voir la dernière partie de
+	http://blog.alsacreations.com/2006/10/20/294-impact-sur-le-rendu-de-la-
+	mise-en-forme-du-code-html
+	Dans l'idéal, on placera ce correctif dans une feuille séparée, appelée
+	via un commentaire conditionnel visant IE6.
+
+6.	Les éléments flottants ne repoussent pas les blocs, mais repoussent
+	uniquement leur contenu. Pour que notre bloc de contenu principal forme
+	une colonne distincte du menu, on lui donne donc une marge à gauche de 20%.
+	Il existe une autre technique pour adapter la largeur d'un bloc aux
+	flottants qui le précèdent. On pourra lire l'article suivant:
+		http://css.alsacreations.com/Faire-une-mise-en-page-sans-tableaux/
+		design-trois-colonnes-positionnement-flottant
+
+*/
